@@ -25,14 +25,17 @@
 
 using System;
 using System.IO;
+using System.Reflection;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace S2006CharSwapMarathon
 {
     static class Program
     {
-        public static string Location = Application.ExecutablePath,              /* More convenient to store these here, rather than constantly requiring... */
-                             WorkingDirectory = Path.GetDirectoryName(Location); /* ...System.Windows.Forms every time I need to use these. */
+        public static readonly string Version = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion,
+                                      Location = Application.ExecutablePath,              /* More convenient to store these here, rather than constantly requiring... */
+                                      WorkingDirectory = Path.GetDirectoryName(Location); /* ...System.Windows.Forms every time I need to use these. */
 
         /// <summary>
         /// The main entry point for the application.

@@ -179,6 +179,7 @@ namespace S2006CharSwapMarathon
             this.Line_Options_Separator_1 = new Marathon.Components.Line();
             this.TextBoxDark_Seed = new Marathon.Components.TextBoxDark();
             this.LabelDark_Seed = new Marathon.Components.LabelDark();
+            this.Label_Version = new System.Windows.Forms.Label();
             this.Panel_ButtonBackdrop.SuspendLayout();
             this.GroupContainer_CharacterSelect.WorkingArea.SuspendLayout();
             this.GroupContainer_CharacterSelect.SuspendLayout();
@@ -208,6 +209,7 @@ namespace S2006CharSwapMarathon
             // Panel_ButtonBackdrop
             // 
             this.Panel_ButtonBackdrop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.Panel_ButtonBackdrop.Controls.Add(this.Label_Version);
             this.Panel_ButtonBackdrop.Controls.Add(this.ButtonDark_Reset);
             this.Panel_ButtonBackdrop.Controls.Add(this.ButtonDark_Randomise);
             this.Panel_ButtonBackdrop.Controls.Add(this.ButtonDark_Swap);
@@ -2603,6 +2605,17 @@ namespace S2006CharSwapMarathon
             this.LabelDark_Seed.Text = "Seed";
             this.LabelDark_Seed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Label_Version
+            // 
+            this.Label_Version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Label_Version.AutoSize = true;
+            this.Label_Version.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.Label_Version.Location = new System.Drawing.Point(708, 18);
+            this.Label_Version.Name = "Label_Version";
+            this.Label_Version.Size = new System.Drawing.Size(81, 15);
+            this.Label_Version.TabIndex = 11;
+            this.Label_Version.Text = "Version 0.0.0.0";
+            // 
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2625,6 +2638,7 @@ namespace S2006CharSwapMarathon
             this.Name = "Main";
             this.Text = "Sonic \'06 Character Swapper";
             this.Panel_ButtonBackdrop.ResumeLayout(false);
+            this.Panel_ButtonBackdrop.PerformLayout();
             this.GroupContainer_CharacterSelect.WorkingArea.ResumeLayout(false);
             this.GroupContainer_CharacterSelect.WorkingArea.PerformLayout();
             this.GroupContainer_CharacterSelect.ResumeLayout(false);
@@ -2799,6 +2813,7 @@ namespace S2006CharSwapMarathon
         private Marathon.Components.Line Line_Options_Separator_1;
         private Marathon.Components.TextBoxDark TextBoxDark_Seed;
         private Marathon.Components.LabelDark LabelDark_Seed;
+        private System.Windows.Forms.Label Label_Version;
     }
 }
 

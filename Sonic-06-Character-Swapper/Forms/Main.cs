@@ -59,6 +59,9 @@ namespace S2006CharSwapMarathon
         {
             InitializeComponent();
 
+            // Set version string.
+            Label_Version.Text = $"Version {Program.Version}";
+
             // Restore last checked states.
             CheckBoxDark_CreateMod.Checked = Properties.Settings.Default.CreateMod;
             CheckBoxDark_OverwriteArchive.Checked = Properties.Settings.Default.OverwriteArchive;
@@ -471,6 +474,9 @@ namespace S2006CharSwapMarathon
         /// </summary>
         private void ButtonDark_Swap_Click(object sender, EventArgs e)
         {
+            // Used for storage.
+            ArchiveDirectory player = null;
+
             if (!File.Exists(ArchivePath))
             {
                 MarathonMessageBox.Show
@@ -508,10 +514,25 @@ namespace S2006CharSwapMarathon
                 return;
             }
 #endif
-            ArchiveDirectory player = LoadedArchive.JumpToDirectory(@"xenon\player\");
-            int currentTotal = player.TotalContentsCount;
+            // Check if 'xenon\player\' returns null.
+            if ((player = LoadedArchive.JumpToDirectory(@"xenon\player\")) == null)
+            {
+                // If so, then check if 'ps3\player\' returns null.
+                if ((player = LoadedArchive.JumpToDirectory(@"ps3\player\")) == null)
+                {
+                    MarathonMessageBox.Show
+                    (
+                        "Failed to locate the scripts directory...",
+                        "Archive Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
 
-            for (int i = 0; i < currentTotal; i++)
+                    Close();
+                }
+            }
+
+            for (int i = 0; i < player.TotalContentsCount; i++)
             {
                 ArchiveFile script = (ArchiveFile)player.Data[i];
 
